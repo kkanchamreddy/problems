@@ -1,0 +1,14 @@
+{
+  "name": "problems",
+  "version": "0.0.1",
+  "author": "kiran",
+  "description": "set of random problems",
+  "license": "MIT",
+  "engines": {
+    "node": ">=0.10"
+  },
+  "dependencies": {
+    "mocha": "~2.2.5",
+    "should": "~6.0.3"
+  }
+}
