@@ -15,25 +15,41 @@ function isEven(num){
 }
 /* O(log n) , TODO: handle negative exponents*/
 function recursiveLogPower(a,b){
-
 	if(b == 0) {
-		console.log('NO more recursion  b is 0', a);
 		return 1;
 	}
 	if(b == 1){
-		console.log('NO more recursion  b is 1', a);
 		return a;
 	}
+    if(b > 0){
+    	b = Math.floor(b/2);
+    } else {
+    	b = Math.ceil(b/2);
+    }
+    var power = recursiveLogPower(a*a, b);
 
 	if(isEven(b)){
-		return recursiveLogPower(a*a, Math.floor(b/2));
+		return power;
 	} else {
-		return a * recursiveLogPower(a*a, Math.floor(b/2));
+		return a * power;
+	}
+}
+
+function nonRecursive(a,b) {
+	var returnVal =   1;
+	while(b > 0) {
+		if(b%2!=0)
+			returnVal = returnVal * a; 
+		a = a*a;
+		b = Math.floor(b/2);
 	}
 
-	
+	return returnVal;
 }
+
+
 
 module.exports.recursivePower = recursivePower;
 module.exports.recursiveLogPower = recursiveLogPower;
+module.exports.nonRecursive = nonRecursive;
 
