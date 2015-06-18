@@ -9,13 +9,21 @@ function evaluate(str) {
             op1 = stack.pop();
             result = operate(parseInt(op1), parseInt(op2), str[i]);
             stack.push(result);
-        }else {
-            stack.push(str[i]);
+        }else if(isDigit(str[i])){
+            var num = 0;
+            while(isDigit(str[i])){
+                num =  num * 10 + parseInt(str[i]);
+                i++;
+            }
+            stack.push(num);
         }
         i++;
     }
-    console.log(stack);
     return stack.pop();
+}
+
+function isDigit(character) {
+    return character >= '0' && character <= '9';
 }
 
 function operate(op1, op2, operator) {
