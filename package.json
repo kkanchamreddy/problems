@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "mocha": "~2.2.5",
-    "should": "~6.0.3"
+    "should": "~6.0.3",
+    "expect": "~1.6.0"
   }
 }
